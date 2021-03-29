@@ -3,7 +3,7 @@ import CreateAccountForm from './CreateAccountForm';
 import '../src/styling/index.css';
 import axios from 'axios';
 import * as yup from 'yup';
-import schema from './formSchema';
+import schema from './createAccountFormSchema';
 
 const initialFormValues = {
   username: '',
