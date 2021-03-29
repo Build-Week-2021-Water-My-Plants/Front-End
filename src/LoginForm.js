@@ -13,6 +13,7 @@ export default function LoginForm () {
                 Password:
                 <input name='password' type='text' />
             </label>
+            <button>Login</button>
 
         </div>
     )
