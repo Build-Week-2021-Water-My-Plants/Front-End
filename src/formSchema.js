@@ -1,16 +1,19 @@
 import * as yup from 'yup';
 
+const phoneRegex = /^\(?([0-9]{3})\)?[.]?([0-9]{3})[.]?([0-9]{4})$/;
+
 export default yup.object().shape({
   username: yup
     .string()
     .required("username is required")
-    .min(4, "username must be 4 chars long"),
+    .min(6, "username must be at least 6 chars long")
+    .max(16, "username cannot be more than 16 chars long"),
   password: yup
     .string()
     .required("password is required")
-    .min(8, "password must be 8 chars long"),
+    .min(8, "password must be at least 8 chars long"),
   phone: yup
     .string()
     .required("phone number is required")
-    .min(10, "phone number must be 10 numbers long (including area code)"),
+    .matches(phoneRegex, "invalid phone number; provide 10 digits without spaces"),
 });

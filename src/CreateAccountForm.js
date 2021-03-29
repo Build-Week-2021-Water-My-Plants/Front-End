@@ -16,7 +16,6 @@ export default function Form(props) {
 
   return (
     <form className='form container' onSubmit={onSubmit}>
-      <h3>Please create an account!</h3>
       <h4>Account Details:</h4>
 
       <div className='form-group inputs'>
@@ -57,9 +56,9 @@ export default function Form(props) {
 
         <div className='errors'>
           <br/>
-          <div id="usernameErrors" style={{ color: 'red'}}>{errors.username}</div>
-          <div id="passwordErrors" style={{ color: 'red'}}>{errors.password}</div>
-          <div id="phoneErrors" style={{ color: 'red'}}>{errors.phone}</div>
+          <div id="usernameErrors" style={{WebkitTextStroke: '0.5px red', WebkitTextFillColor: 'black'}}>{errors.username}</div>
+          <div id="passwordErrors" style={{WebkitTextStroke: '0.5px red', WebkitTextFillColor: 'black'}}>{errors.password}</div>
+          <div id="phoneErrors" style={{WebkitTextStroke: '0.5px red', WebkitTextFillColor: 'black'}}>{errors.phone}</div>
         </div>
       </div>
     </form>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import CreateAccountForm from './CreateAccountForm';
 import '../src/styling/index.css';
 import axios from 'axios';
@@ -28,13 +27,13 @@ export default function App() {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
 
-  // this useEffect logs the 'orders' array state everytime it is updated
+  // this useEffect logs the 'accounts' array state everytime it is updated
   useEffect(() => {
     console.log(accounts, "This array constains information regarding all created accounts; try creating an account!");
   }, [accounts]);
 
-  // using the inputs provided by the user, this function posts a new pizza order object to the API specified in the README
-  // the new pizza order object is then added to the 'orders' array state, which keeps track of all active pizza orders
+  // using the inputs provided by the user, this function posts a new account object to the API
+  // the new account object is then added to the 'accounts' array state, which keeps track of all created accounts
   const postNewAccount = (newAccount) => {
     axios
       .post("https://reqres.in/api/accounts", newAccount)
@@ -89,6 +88,7 @@ export default function App() {
 
   return (
     <div className='form container'>
+      <h3>Please create an account!</h3>
       <CreateAccountForm
       values={formValues}
       change={inputChange}
