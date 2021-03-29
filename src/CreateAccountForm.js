@@ -18,9 +18,9 @@ export default function Form(props) {
     <form className='form container' onSubmit={onSubmit}>
       <h4>Account Details:</h4>
 
-      <div className='form-group inputs'>
+      <div className='form-group inputs' style={{display: 'flex', flexFlow: 'column nowrap', justifyContent: 'center', alignItems: 'baseline'}}>
         <label>
-          Username:&nbsp;
+          Username:&nbsp;&nbsp;&nbsp;&nbsp;
           <input
             value={values.username}
             onChange={onChange}
@@ -30,7 +30,7 @@ export default function Form(props) {
         </label>
 
         <label>
-          <br/>Password:&nbsp;
+          Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input
             value={values.password}
             onChange={onChange}
@@ -40,7 +40,7 @@ export default function Form(props) {
         </label>
 
         <label>
-          <br/>Phone Number:&nbsp;
+          Phone Num:&nbsp;
           <input
             value={values.phone}
             onChange={onChange}
@@ -52,7 +52,7 @@ export default function Form(props) {
       
       <div className='form-group submit'>
         <br/>
-        <button id='submitButton' disabled={disabled}>Create Account</button>
+        <button id='submitButton' disabled={disabled} style={{padding: '2%'}}>Create Account</button>
 
         <div className='errors'>
           <br/>

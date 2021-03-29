@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import CreateAccountForm from './CreateAccountForm';
 import '../src/styling/index.css';
 import axios from 'axios';
@@ -26,6 +27,11 @@ export default function App() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
+  const history = useHistory();
+
+  const routeToLogin = () => {
+      history.push('/Login');
+  }
 
   // this useEffect logs the 'accounts' array state everytime it is updated
   useEffect(() => {
@@ -40,9 +46,11 @@ export default function App() {
       .then((res) => {
         console.log(res.data);
         setAccounts([res.data, ...accounts]);
+        window.alert("---Account creation successful!---");
       })
       .catch((err) => {
         console.log(err);
+        window.alert("---Account creation was unsuccessful---");
       })
       .finally(() => {
         setFormValues(initialFormValues);
@@ -87,7 +95,7 @@ export default function App() {
   }, [formValues]);
 
   return (
-    <div className='form container'>
+    <div className='form container' style={{display: 'flex', flexFlow: 'column nowrap', justifyContent: 'center', alignItems: 'center'}}>
       <h3>Please create an account!</h3>
       <CreateAccountForm
       values={formValues}
@@ -96,6 +104,7 @@ export default function App() {
       disabled={disabled}
       errors={formErrors}
       />
+      <div onClick={routeToLogin} id='login-button' style={{border: '4px double white', padding: '1%', width: '107px', margin: '10px 0px'}}>Go to Login</div>
     </div>
   );
 };
