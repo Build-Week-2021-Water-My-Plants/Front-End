@@ -6,6 +6,10 @@ import * as Yup from "yup";
 //STYLING IMPORTS
 import "./styling/index.css";
 
+//COMPONENTS IMPORTS
+import Login from './Login'
+
+
 function App() {
   return (
    <div className="frontPageCatchAllDiv">
@@ -21,7 +25,9 @@ function App() {
      <Switch>
         <Route path={'/CreateAccount'}></Route>
         <Route path={'/Profile'}></Route>
-        <Route path={'/Login'}></Route>
+        <Route path={'/Login'}>
+          <Login />
+        </Route>
         <Route path={'/'}></Route>
       </Switch>
 
