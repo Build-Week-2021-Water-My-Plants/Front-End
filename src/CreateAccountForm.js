@@ -18,7 +18,7 @@ export default function Form(props) {
     <form className='form container' onSubmit={onSubmit}>
       <h4>Account Details:</h4>
 
-      <div className='form-group inputs' style={{display: 'flex', flexFlow: 'column nowrap', justifyContent: 'center', alignItems: 'baseline'}}>
+      <div className='form-group inputs' style={{display: 'flex', flexFlow: 'column nowrap', alignItems: 'baseline'}}>
         <label>
           Username:&nbsp;&nbsp;&nbsp;&nbsp;
           <input

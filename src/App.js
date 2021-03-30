@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import CreateAccount from "./CreateAccount";
+import Profile from "./Profile";
 import axios from "axios";
 import * as Yup from "yup";
 //STYLING IMPORTS
@@ -25,7 +26,7 @@ function App() {
 
      <Switch>
         <Route path={'/CreateAccount'} component={CreateAccount}></Route>
-        <Route path={'/Profile'}></Route>
+        <Route path={'/Profile'} component={Profile}></Route>
         <Route path={'/Login'}>
           <Login />
         </Route>

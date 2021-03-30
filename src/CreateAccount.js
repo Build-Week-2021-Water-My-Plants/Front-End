@@ -9,7 +9,8 @@ import schema from './createAccountFormSchema';
 const initialFormValues = {
   username: '',
   password: '',
-  phone: ''
+  phone: '',
+  id: ''
 };
 
 const initialFormErrors = {
@@ -35,7 +36,7 @@ export default function App() {
 
   // this useEffect logs the 'accounts' array state everytime it is updated
   useEffect(() => {
-    console.log(accounts, "This array constains information regarding all created accounts; try creating an account!");
+    console.log(accounts, "This array constains information regarding all created accounts; try creating an account and it will be added here automatically");
   }, [accounts]);
 
   // using the inputs provided by the user, this function posts a new account object to the API
@@ -44,7 +45,7 @@ export default function App() {
     axios
       .post("https://reqres.in/api/accounts", newAccount)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data, "This log displays the account object being posted to the API");
         setAccounts([res.data, ...accounts]);
         window.alert("---Account creation successful!---");
       })
@@ -83,7 +84,9 @@ export default function App() {
     const newAccount = {
       username: formValues.username.trim(),
       password: formValues.password.trim(),
-      phone: formValues.phone.trim()
+      phone: formValues.phone.trim(),
+      // generating a random number to serve as the account object's unique id
+      id: Math.random()
     };
     postNewAccount(newAccount);
   };
@@ -96,7 +99,7 @@ export default function App() {
 
   return (
     <div className='form container' style={{display: 'flex', flexFlow: 'column nowrap', justifyContent: 'center', alignItems: 'center'}}>
-      <h3>Please create an account!</h3>
+      <h3>Please create an account</h3>
       <CreateAccountForm
       values={formValues}
       change={inputChange}
