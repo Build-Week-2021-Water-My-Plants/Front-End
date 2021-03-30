@@ -1,81 +1,92 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import LoginForm from './LoginForm'
 import * as yup from 'yup'
-import userLoginSchema from './userLoginSchema'
-import passLoginSchema from './passLoginSchema'
+import schema from './userLoginSchema'
+import axios from 'axios';
 
 // Form Initialization //
-const initialUsernameValue = {
+const initialFormValues = {
     username: '',
-};
-
-const initialPasswordValue = {
     password: '',
 };
 
-const initialUsernameErrors = {
-    username: '',
-};
 
-const initialPasswordErrors = {
+const initialFormErrors = {
+    username: '',
     password: '',
 };
 
 const initialDisabled = true;
 
+
 export default function Login (props) {
 
     // States //
-    const [username, setUsername] = useState(initialUsernameValue);
-    const [password, setPassword] = useState(initialPasswordValue);
-    const [usernameErrors, setUsernameErrors] = useState(initialUsernameErrors);
-    const [passwordErrors, setPasswordErrors] = useState(initialPasswordErrors);
+    const [formValues, setFormValues] = useState(initialFormValues);
+    const [formErrors, setFormErrors] = useState(initialFormErrors);
+    const [disabled, setDisabled] = useState(initialDisabled);
 
     // Helpers //
+    const getUserInfo = (userInfo) => {
+        axios
+          .post('https://reqres.in/api/post')
+          .then(res => {
+              // insert user authentication code here? //
+              console.log(res)
+          })
+          .catch(err => {
+              console.log(err)
+          })
+    }
 
     // Event Handlers //
-    const userInputChange = (name, value) => {
+    const inputChange = (name, value) => {
         yup
-          .reach(userLoginSchema, name)
+          .reach(schema, name)
           .validate(value)
           .then(() => {
-              setUsernameErrors({
-                  ...usernameErrors, [name]: ""
-              });
+            setFormErrors({
+              ...formErrors,
+              [name]: "",
+            });
           })
           .catch(err => {
-              setUsernameErrors({
-                  ...usernameErrors, [name]: err.errors[0]
-              });
-          })
-          setUsername({
-              ...username, [name]: value,
+            setFormErrors({
+              ...formErrors,
+              [name]: err.errors[0],
+            });
           });
+          setFormValues({
+            ...formValues,
+            [name]: value,
+          });
+      }
+
+
+
+    const formSubmit = () => {
+        const userCheck = {
+            username: formValues.name.trim(),
+            password: formValues.password.trim(),
+        }
+        formSubmit(userCheck)
     }
 
-    const passInputChange = (name, value) => {
-        yup
-          .reach(passLoginSchema, name)
-          .validate(value)
-          .then(() => {
-              setPasswordErrors({
-                  ...passwordErrors, [name]: ""
-              });
-          })
-          .catch(err => {
-              setPasswordErrors({
-                  ...passwordErrors, [name]: err.errors[0]
-              });
-          })
-          setPassword({
-              ...password, [name]: value,
-          });
-    }
-
+    // Side Effects //
+    useEffect(() => {
+        schema.isValid(formValues).then((valid) => {
+            setDisabled(!valid)
+        })
+    })
     return (
         <div>
             <h2>Welcome to the Login Page!</h2>
-            <LoginForm />
+            <LoginForm 
+              values={formValues}
+              change={inputChange}
+              submit={formSubmit}
+              disabled={disabled}
+              errors={formErrors} />
         </div>
         
     )
