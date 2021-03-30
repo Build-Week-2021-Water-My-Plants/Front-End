@@ -36,7 +36,7 @@ export default function App() {
 
   // this useEffect logs the 'accounts' array state everytime it is updated
   useEffect(() => {
-    console.log(accounts, "This array constains information regarding all created accounts; try creating an account!");
+    console.log(accounts, "This array constains information regarding all created accounts; try creating an account and it will be added here automatically");
   }, [accounts]);
 
   // using the inputs provided by the user, this function posts a new account object to the API
@@ -45,7 +45,7 @@ export default function App() {
     axios
       .post("https://reqres.in/api/accounts", newAccount)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data, "This log displays the account object being posted to the API");
         setAccounts([res.data, ...accounts]);
         window.alert("---Account creation successful!---");
       })
