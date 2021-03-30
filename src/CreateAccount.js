@@ -9,7 +9,8 @@ import schema from './createAccountFormSchema';
 const initialFormValues = {
   username: '',
   password: '',
-  phone: ''
+  phone: '',
+  id: ''
 };
 
 const initialFormErrors = {
@@ -83,7 +84,9 @@ export default function App() {
     const newAccount = {
       username: formValues.username.trim(),
       password: formValues.password.trim(),
-      phone: formValues.phone.trim()
+      phone: formValues.phone.trim(),
+      // generating a random number to serve as the account object's unique id
+      id: Math.random()
     };
     postNewAccount(newAccount);
   };
