@@ -96,7 +96,7 @@ export default function App() {
 
   return (
     <div className='form container' style={{display: 'flex', flexFlow: 'column nowrap', justifyContent: 'center', alignItems: 'center'}}>
-      <h3>Please create an account!</h3>
+      <h3>Please create an account</h3>
       <CreateAccountForm
       values={formValues}
       change={inputChange}
