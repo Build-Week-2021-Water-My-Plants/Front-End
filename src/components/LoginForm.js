@@ -17,12 +17,6 @@ export default function LoginForm (props) {
         change( name, value )
       }
     
-    // Route to Profile if we need it//
-    // const history = useHistory()
-
-    // const routeToProfile = () => {
-    //     history.push('/Profile')
-    // }
 
 
 

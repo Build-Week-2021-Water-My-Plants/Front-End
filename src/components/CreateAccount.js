@@ -6,16 +6,16 @@ import * as yup from 'yup';
 //COMPONENT IMPORTS
 import CreateAccountForm from './CreateAccountForm';
 import schema from './createAccountFormSchema';
-import axiosWithAuth from "./components/axiosWithAuth";
+import axiosWithAuth from "./axiosWithAuth";
 //STYLING IMPORTS 
-import '../src/styling/index.css';
+import "../styling/index.css";
 
 
 const initialFormValues = {
   username: '',
   password: '',
   phone: '',
-  id: ''
+  // id: ''
 };
 
 const initialFormErrors = {
@@ -51,8 +51,11 @@ export default function App() {
       .post("https://plants-serv.herokuapp.com/api/auth/register", formValues)
       .then((res) => {
         console.log("SUCCEEDED POSTING NEW ACCOUNT CREATION", res);
-        // setAccounts([res.data, ...accounts]);
+        setAccounts([
+          ...accounts, res.data
+        ]);
         window.alert("---Account creation successful!---");
+        history.push("/Login");
       })
       .catch((err) => {
         console.log("FAILED TO POST NEW ACCOUNT CREATION", err);

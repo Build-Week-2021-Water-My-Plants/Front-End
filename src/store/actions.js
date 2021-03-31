@@ -11,7 +11,7 @@ export const DELETE_PLANT = "DELETE_PLANT";
 export const fetchPlants = () => (dispatch) => {
   dispatch({ type: FETCH_PLANTS_START });
   axiosWithAuth()
-    .get("http://localhost:5000")
+    .get("https://plants-serv.herokuapp.com/api/plants/")
     .then((res) => {
       console.log("SUCCEEDED FETCHING PLANTS", res);
       dispatch({ type: FETCH_PLANTS_SUCCESS, payload: res.data });

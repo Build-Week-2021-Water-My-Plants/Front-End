@@ -8,9 +8,9 @@ import "./styling/index.css";
 //COMPONENTS IMPORTS
 import ManagePlants from "./components/ManagePlants";
 import UpdatePlant from "./components/UpdatePlant";
-import Login from './Login'
-import CreateAccount from "./CreateAccount";
-import Profile from "./Profile";
+import Login from './components/Login';
+import CreateAccount from "./components/CreateAccount";
+import Profile from "./components/Profile";
 
 function App() {
   return (
