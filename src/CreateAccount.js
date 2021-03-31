@@ -1,10 +1,15 @@
+//TECH IMPORTS 
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import CreateAccountForm from './CreateAccountForm';
-import '../src/styling/index.css';
 import axios from 'axios';
 import * as yup from 'yup';
+//COMPONENT IMPORTS
+import CreateAccountForm from './CreateAccountForm';
 import schema from './createAccountFormSchema';
+import axiosWithAuth from "./components/axiosWithAuth";
+//STYLING IMPORTS 
+import '../src/styling/index.css';
+
 
 const initialFormValues = {
   username: '',
@@ -42,15 +47,15 @@ export default function App() {
   // using the inputs provided by the user, this function posts a new account object to the API
   // the new account object is then added to the 'accounts' array state, which keeps track of all created accounts
   const postNewAccount = (newAccount) => {
-    axios
-      .post("https://reqres.in/api/accounts", newAccount)
+    axiosWithAuth()
+      .post("https://plants-serv.herokuapp.com/api/auth/register", formValues)
       .then((res) => {
-        console.log(res.data, "This log displays the account object being posted to the API");
-        setAccounts([res.data, ...accounts]);
+        console.log("SUCCEEDED POSTING NEW ACCOUNT CREATION", res);
+        // setAccounts([res.data, ...accounts]);
         window.alert("---Account creation successful!---");
       })
       .catch((err) => {
-        console.log(err);
+        console.log("FAILED TO POST NEW ACCOUNT CREATION", err);
         window.alert("---Account creation was unsuccessful---");
       })
       .finally(() => {

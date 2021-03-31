@@ -31,13 +31,13 @@ export default function Login (props) {
     // Helpers //
     const postUserInfo = (userInfo) => {
         axios
-          .post('https://reqres.in/api/accounts')
+          .post('https://plants-serv.herokuapp.com/api/auth/login', formValues)
           .then(res => {
-              // insert user authentication code here? //
-              console.log(res)
+              console.log("SUCCESSFULLY POSTED LOGIN INFO", res);
+              
           })
           .catch(err => {
-              console.log(err)
+              console.log("FAILED TO POST LOGIN INFO", err);
           })
     }
 
