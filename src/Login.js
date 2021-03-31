@@ -27,9 +27,9 @@ export default function Login (props) {
     const [disabled, setDisabled] = useState(initialDisabled);
 
     // Helpers //
-    const getUserInfo = (userInfo) => {
+    const postUserInfo = (userInfo) => {
         axios
-          .post('https://reqres.in/api/post')
+          .post('https://reqres.in/api/accounts')
           .then(res => {
               // insert user authentication code here? //
               console.log(res)
@@ -69,7 +69,7 @@ export default function Login (props) {
             username: formValues.name.trim(),
             password: formValues.password.trim(),
         }
-        formSubmit(userCheck)
+        postUserInfo(userCheck)
     }
 
     // Side Effects //
