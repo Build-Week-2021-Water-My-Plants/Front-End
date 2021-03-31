@@ -11,11 +11,11 @@ import axiosWithAuth from "./axiosWithAuth";
 import "../styling/index.css";
 
 
+
 const initialFormValues = {
   username: '',
   password: '',
   phone: '',
-  // id: ''
 };
 
 const initialFormErrors = {
@@ -28,7 +28,10 @@ const initialAccounts = [];
 
 const initialDisabled = true;
 
-export default function App() {
+export default function CreateAccount(props) {
+
+ const { uniqueId, setUniqueId }=props;
+
   const [accounts, setAccounts] = useState(initialAccounts);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
@@ -46,7 +49,7 @@ export default function App() {
 
   // using the inputs provided by the user, this function posts a new account object to the API
   // the new account object is then added to the 'accounts' array state, which keeps track of all created accounts
-  const postNewAccount = (newAccount) => {
+  const postNewAccount = () => {
     axiosWithAuth()
       .post("https://plants-serv.herokuapp.com/api/auth/register", formValues)
       .then((res) => {
@@ -54,6 +57,7 @@ export default function App() {
         setAccounts([
           ...accounts, res.data
         ]);
+        setUniqueId(res.data.id);
         window.alert("---Account creation successful!---");
         history.push("/Login");
       })

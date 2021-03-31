@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 //STYLING IMPORTS
 import "../styling/index.css";
 //COMPONENT IMPORTS
+import axiosWithAuth from "./axiosWithAuth";
 import {
   fetchPlants,
   addPlant,
