@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import LoginForm from './LoginForm'
 import * as yup from 'yup'
-import schema from './userLoginSchema'
+import userLoginSchema from './userLoginSchema'
 import axios from 'axios';
 
 // Form Initialization //
@@ -42,7 +42,7 @@ export default function Login (props) {
     // Event Handlers //
     const inputChange = (name, value) => {
         yup
-          .reach(schema, name)
+          .reach(userLoginSchema, name)
           .validate(value)
           .then(() => {
             setFormErrors({
@@ -74,7 +74,7 @@ export default function Login (props) {
 
     // Side Effects //
     useEffect(() => {
-        schema.isValid(formValues).then((valid) => {
+        userLoginSchema.isValid(formValues).then((valid) => {
             setDisabled(!valid)
         })
     })

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 export default function LoginForm (props) {
     // Destructuring Props //
     const { values, submit, change, disabled, errors } = props;
+    console.log(errors)
 
     // onSubmit & onChange //
     const onSubmit = evt => {
@@ -17,11 +18,11 @@ export default function LoginForm (props) {
       }
     
     // Route to Profile if we need it//
-    const history = useHistory()
+    // const history = useHistory()
 
-    const routeToProfile = () => {
-        history.push('/Profile')
-    }
+    // const routeToProfile = () => {
+    //     history.push('/Profile')
+    // }
 
 
 
@@ -43,10 +44,14 @@ export default function LoginForm (props) {
                     value={values.password}
                     onChange={onChange} />
                 </label>
-                <button onClick={onSubmit} disabled={disabled}>Login</button>
+                <button onClick={onSubmit} disabled={disabled}>
+                    Login
+                </button>
                 <div style={{ color: 'red'}}>
                     <div>
-                        {errors.name}
+                        {errors.username}
+                        <br></br>
+                        {errors.password}
                     </div>
                 </div>
             </form>
