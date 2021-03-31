@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import * as yup from 'yup'
 import axios from 'axios';
+import axiosWithAuth from "./axiosWithAuth";
 //COMPONENT IMPORTS
 import userLoginSchema from './userLoginSchema'
 import LoginForm from './LoginForm'
@@ -30,7 +31,7 @@ export default function Login (props) {
 
     // Helpers //
     const postUserInfo = (userInfo) => {
-        axios
+        axiosWithAuth()
           .post('https://plants-serv.herokuapp.com/api/auth/login', formValues)
           .then(res => {
               console.log("SUCCESSFULLY POSTED LOGIN INFO", res);

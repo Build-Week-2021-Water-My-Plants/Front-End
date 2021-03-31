@@ -6,16 +6,16 @@ import * as yup from 'yup';
 //COMPONENT IMPORTS
 import CreateAccountForm from './CreateAccountForm';
 import schema from './createAccountFormSchema';
-import axiosWithAuth from "./components/axiosWithAuth";
+import axiosWithAuth from "./axiosWithAuth";
 //STYLING IMPORTS 
-import '../src/styling/index.css';
+import "../styling/index.css";
 
 
 const initialFormValues = {
   username: '',
   password: '',
   phone: '',
-  id: ''
+  // id: ''
 };
 
 const initialFormErrors = {

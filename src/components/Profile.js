@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../src/styling/index.css';
+import "../styling/index.css";
 
 // this is just dummy information to ensure that the UI is displaying correctly; once data is actually being retrieved from the API, then this can be changed to an empty object
 const initialAccount = { username: 'JohnDoe123', phone: '3051234567', id: 0.1111111111111111 };
