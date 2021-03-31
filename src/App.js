@@ -13,13 +13,16 @@ import CreateAccount from "./components/CreateAccount";
 import Profile from "./components/Profile";
 
 function App() {
+
+  const [uniqueId, setUniqueId] = useState("");
+
   return (
     <div className="frontPageCatchAllDiv">
     <nav className="frontPageNav">
       <Link to="/">Home</Link>
       <Link to="/CreateAccount">Create an Account</Link>
       <Link to="/Login">Login</Link>
-      <Link to="/Profile">Profile</Link>
+      <Link to="/Profile/:id">Profile</Link>
       <Link to="/ManagePlants">Manage Plants</Link>
     </nav>
     <h1>Water My Plants</h1>
@@ -32,10 +35,12 @@ function App() {
         <Route path="/UpdatePlant/:id">
           <UpdatePlant />
         </Route>
-        <Route path={'/CreateAccount'} component={CreateAccount}></Route>
-        <Route path={'/Profile'} component={Profile}></Route>
+        <Route path={'/CreateAccount'}>
+          <CreateAccount uniqueId={uniqueId} setUniqueId={setUniqueId} />
+        </Route>
+        <Route path={'/Profile/:id'} component={Profile}></Route>
         <Route path={'/Login'}>
-          <Login />
+          <Login uniqueId={uniqueId} setUniqueId={setUniqueId} />
         </Route>
         <Route path={'/'}></Route>
       </Switch>

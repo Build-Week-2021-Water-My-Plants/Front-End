@@ -25,6 +25,8 @@ const initialDisabled = true;
 
 export default function Login (props) {
 
+  const { uniqueId, setUniqueId } = props;
+
   const history = useHistory();
 
     // States //
@@ -39,7 +41,7 @@ export default function Login (props) {
           .then(res => {
               console.log("SUCCESSFULLY POSTED LOGIN INFO", res);
               localStorage.setItem("token", res.data.token);
-              history.push("/Profile");
+              history.push(`/Profile/${uniqueId}`);
           })
           .catch(err => {
               console.log("FAILED TO POST LOGIN INFO", err);
