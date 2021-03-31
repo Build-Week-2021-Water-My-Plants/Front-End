@@ -9,8 +9,9 @@ import thunk from "redux-thunk";
 //STYLING IMPORTS
 import "./styling/index.css";
 //COMPONENT IMPORTS
-import App from "./App";
+import App from "./App.js";
 import reducer from "./store/reducer";
+import reportWebVitals from "./reportWebVitals";
 
 const store = createStore(reducer, applyMiddleware(thunk, logger));
 

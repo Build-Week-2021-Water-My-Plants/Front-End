@@ -1,8 +1,10 @@
+//TECH IMPORTS
 import React, { useEffect, useState } from 'react';
-import LoginForm from './LoginForm'
 import * as yup from 'yup'
-import userLoginSchema from './userLoginSchema'
 import axios from 'axios';
+//COMPONENT IMPORTS
+import userLoginSchema from './userLoginSchema'
+import LoginForm from './LoginForm'
 
 // Form Initialization //
 const initialFormValues = {
