@@ -51,8 +51,11 @@ export default function App() {
       .post("https://plants-serv.herokuapp.com/api/auth/register", formValues)
       .then((res) => {
         console.log("SUCCEEDED POSTING NEW ACCOUNT CREATION", res);
-        // setAccounts([res.data, ...accounts]);
+        setAccounts([
+          ...accounts, res.data
+        ]);
         window.alert("---Account creation successful!---");
+        history.push("/Login");
       })
       .catch((err) => {
         console.log("FAILED TO POST NEW ACCOUNT CREATION", err);

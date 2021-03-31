@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import * as yup from 'yup'
 import axios from 'axios';
 import axiosWithAuth from "./axiosWithAuth";
+import { useHistory } from "react-router-dom";
 //COMPONENT IMPORTS
 import userLoginSchema from './userLoginSchema'
 import LoginForm from './LoginForm'
@@ -24,6 +25,8 @@ const initialDisabled = true;
 
 export default function Login (props) {
 
+  const history = useHistory();
+
     // States //
     const [formValues, setFormValues] = useState(initialFormValues);
     const [formErrors, setFormErrors] = useState(initialFormErrors);
@@ -35,7 +38,8 @@ export default function Login (props) {
           .post('https://plants-serv.herokuapp.com/api/auth/login', formValues)
           .then(res => {
               console.log("SUCCESSFULLY POSTED LOGIN INFO", res);
-              
+              localStorage.setItem("token", res.data.token);
+              history.push("/Profile");
           })
           .catch(err => {
               console.log("FAILED TO POST LOGIN INFO", err);
@@ -69,7 +73,7 @@ export default function Login (props) {
 
     const formSubmit = () => {
         const userCheck = {
-            username: formValues.name.trim(),
+            username: formValues.username.trim(),
             password: formValues.password.trim(),
         }
         postUserInfo(userCheck)
