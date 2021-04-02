@@ -96,7 +96,7 @@ const ManagePlants = (props) => {
       })}
       <h2>Add A New Plant</h2>
       <div className="addPlantForm">
-        <form onSubmit={handleAddPlantSubmit}>
+        <form className='plant-form' onSubmit={handleAddPlantSubmit}>
           <label htmlFor="nickname">
             Enter A Plant Nickname:
             <input

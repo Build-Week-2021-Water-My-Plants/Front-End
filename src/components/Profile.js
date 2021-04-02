@@ -81,7 +81,7 @@ export default function Profile() {
     <h4>Phone Num:&nbsp;&nbsp; {`${account.phone}`}</h4>
 
   </div>
-    <form onSubmit={submitUpdatedProfileInfo}>
+    <form className='profile-form' onSubmit={submitUpdatedProfileInfo}>
       <label htmlFor="username">Edit Username:
         <input type="text" name="username" id="username" placeholder="Enter Username" value={updateProfileFormValues.username} onChange={handleUpdateProfileChange} />
       </label>
