@@ -34,6 +34,7 @@ link {
   padding: 1rem;
   color: white;
   margin: 1rem;
+  margin-top: 2rem;
   border-radius: 1rem;
 }
 .frontPageNav {
@@ -69,7 +70,7 @@ input {
   border: 0.5rem ridge #f4d03f;
   display: block;
   position: relative;
-  left: 50rem;
+  left: 66rem;
 }
 .updatePlantButton {
   padding: 1rem;
@@ -98,7 +99,10 @@ input {
 .individualPlant img {
   height: 25rem;
 }
+.UpdatePlantForm {
+  margin: 2rem;
 
+}
 
 /*---media queries----*/
 @media only screen and (max-width: 800px) {
@@ -142,5 +146,4 @@ input {
     margin: .2em;
     padding: .2em;
   }
-
 }

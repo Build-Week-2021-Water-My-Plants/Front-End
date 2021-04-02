@@ -1,7 +1,7 @@
 //TECH IMPORTS
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 //STYLING IMPORTS
 import "../styling/index.css";
 //COMPONENT IMPORTS
@@ -70,6 +70,7 @@ const ManagePlants = (props) => {
   //BEGIN FUNCTIONAL COMPONENT RETURN
   return (
     <div className="ManagePlantsMainDiv">
+      <Link to="/Profile/:id">Profile</Link>
       <h2>My Plants</h2>
       {props.plants.map((plt) => {
         return (

@@ -1,6 +1,6 @@
 //TECH IMPORTS 
 import React, { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from 'axios';
 //COMPONENT IMPORTS
 import axiosWithAuth from "./axiosWithAuth";
@@ -72,6 +72,7 @@ export default function Profile() {
   
   return (
     <div>
+      <Link to="/ManagePlants">Manage Plants</Link>
     <div className='profile container' style={{display: 'flex', flexFlow: 'column nowrap', alignItems: 'baseline'}}>
     <h3>See your profile details below</h3>
 
