@@ -98,3 +98,45 @@ input {
 .individualPlant img {
   height: 25rem;
 }
+
+
+/*---media queries----*/
+@media only screen and (max-width: 800px) {
+  nav {
+    display: flex;
+    justify-items: space-around;
+    text-align: center;    
+    align-items: center;
+    
+  }
+
+  .frontPageCatchAllDiv {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  nav a{
+    margin: .2em;
+    padding: .5em;  
+    box-shadow: 0.2rem 0.2rem .5rem 0rem white;
+  }
+
+  .profile-form, .login-form, .plant-form {
+    display: inline-flex;
+    flex-direction: column;
+  }
+  .submitNewPlantButton {
+    position: static;
+  }
+  
+}
+
+
+@media only screen and (max-width: 400px) {
+  nav a{
+    margin: .2em;
+    padding: .2em;
+  }
+
+}
