@@ -22,8 +22,6 @@ function App() {
       <Link to="/">Home</Link>
       <Link to="/CreateAccount">Create an Account</Link>
       <Link to="/Login">Login</Link>
-      <Link to="/Profile/:id">Profile</Link>
-      <Link to="/ManagePlants">Manage Plants</Link>
     </nav>
     <h1>Water My Plants</h1>
     <h3>Keeping Your Plants Alive & Your Life Oxygenated</h3>

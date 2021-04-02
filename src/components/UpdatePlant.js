@@ -1,7 +1,7 @@
 //TECH IMPORTS
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 //COMPONENT IMPORTS
 import {
   fetchPlants,
@@ -9,6 +9,8 @@ import {
   updatePlant,
   deletePlant
 } from "../store/actions";
+//STYLING IMPORTS 
+import "../styling/index.css";
 
 const UpdatePlant = (props) => {
   //SLICES OF STATE / HOOKS
@@ -63,8 +65,10 @@ const UpdatePlant = (props) => {
   //BEGIN CLASS COMPONENT RETURN
 
   return (
-    <div className="UpdatePlantForm">
-      <form onSubmit={handleUpdatePlantSubmit}>
+    <div className="UpdatePlantMainDiv">
+      <Link to="/ManagePlants">Manage Plants</Link>
+      <Link to="/Profile/:id">Profile</Link>
+      <form className="UpdatePlantForm" onSubmit={handleUpdatePlantSubmit}>
         <label htmlFor="nickname">
           Enter A Plant Nickname:
           <input
