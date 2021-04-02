@@ -110,6 +110,15 @@ input {
     
   }
 
+  .profile-form, .login-form, .plant-form {
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  .submitNewPlantButton {
+    position: static;
+  }
+
   .frontPageCatchAllDiv {
     padding: 0;
   }
@@ -122,13 +131,8 @@ input {
     box-shadow: 0.2rem 0.2rem .5rem 0rem white;
   }
 
-  .profile-form, .login-form, .plant-form {
-    display: inline-flex;
-    flex-direction: column;
-  }
-  .submitNewPlantButton {
-    position: static;
-  }
+
+
   
 }
 
