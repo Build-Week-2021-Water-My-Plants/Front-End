@@ -52,7 +52,7 @@ export default function Form(props) {
       
       <div className='form-group submit'>
         <br/>
-        <button id='submitButton' disabled={disabled} style={{padding: '2%'}}>Create Account</button>
+        <button className="CreateAccountSubmit" id='submitButton' disabled={disabled} style={{padding: '2%'}}>Create Account</button>
 
         <div className='errors'>
           <br/>

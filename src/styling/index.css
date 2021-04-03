@@ -103,6 +103,36 @@ input {
   margin: 2rem;
 
 }
+.CreateAccountSubmit {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #16a085;
+  color: white;
+  border: 0.5rem ridge #f4d03f;
+  display: block;
+  position: relative;
+  left: 8rem;
+}
+.LoginSubmit {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #16a085;
+  color: white;
+  border: 0.5rem ridge #f4d03f;
+  display: block;
+  position: relative;
+  left: 25rem;
+}
+.ProfileSubmitButton {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #16a085;
+  color: white;
+  border: 0.5rem ridge #f4d03f;
+  display: block;
+  position: relative;
+  left: 25rem;
+}
 
 /*---media queries----*/
 @media only screen and (max-width: 800px) {

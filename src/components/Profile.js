@@ -88,7 +88,7 @@ export default function Profile() {
       <label htmlFor="phone">Edit Phone Number:
         <input type="phone" name="phone" id="phone" placeholder="Enter Phone Number" value={updateProfileFormValues.phone} onChange={handleUpdateProfileChange} />
       </label>
-      <button>Submit Updates</button>
+      <button className="ProfileSubmitButton">Submit Updates</button>
     </form>
   </div>
 

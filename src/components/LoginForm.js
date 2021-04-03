@@ -38,7 +38,7 @@ export default function LoginForm (props) {
                     value={values.password}
                     onChange={onChange} />
                 </label>
-                <button onClick={onSubmit} disabled={disabled}>
+                <button className="LoginSubmit" onClick={onSubmit} disabled={disabled}>
                     Login
                 </button>
                 <div style={{ color: 'red'}}>
